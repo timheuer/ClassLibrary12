@@ -55,7 +55,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test --logger "junit;LogFilePath=results/tests.xml"
+      run: dotnet test --logger "junit" --results-directory results
 
     - name: Test Dashboard
       uses: test-summary/action@dist
