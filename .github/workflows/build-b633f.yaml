@@ -51,9 +51,17 @@ jobs:
     - name: Restore
       run: dotnet restore
 
+    - name: Append some job summary info
+      run: |
+        echo "Restore succeeded" >> $GITHUB_STEP_SUMMARY
+        
     - name: Build
       run: dotnet build --configuration Release --no-restore
 
+    - name: Append some job summary info
+      run: |
+        echo "Build succeeded" >> $GITHUB_STEP_SUMMARY
+        
     - name: Test
       run: dotnet test --logger "junit" --results-directory results
 
