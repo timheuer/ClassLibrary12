@@ -58,7 +58,7 @@ jobs:
       run: dotnet test --logger "junit;LogFilePath=results/tests.xml"
 
     - name: Test Dashboard
-      uses: test-summary/action@v1.0
+      uses: test-summary/action@dist
       if: always()
       with:
         paths: "results/**/*.xml"
