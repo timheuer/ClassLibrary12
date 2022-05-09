@@ -55,10 +55,10 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test --logger TRX --results-directory results
+      run: dotnet test --logger "junit;LogFilePath=results/tests.xml"
 
     - name: Test Dashboard
       uses: test-summary/action@v1.0
       if: always()
       with:
-        paths: "results/**/*.trx"
+        paths: "results/**/*.xml"
